@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Microsoft Teams
+Comment=Microsoft Teams with background calls and a tray icon
+Exec=/usr/bin/microsoft-teams-pwa %u
+Icon=microsoft-teams-pwa
+Terminal=false
+StartupNotify=true
+StartupWMClass=teams-pwa
+Categories=Network;InstantMessaging;VideoConference;
+MimeType=x-scheme-handler/msteams;

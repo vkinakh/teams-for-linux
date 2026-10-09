@@ -1,0 +1,19 @@
+{
+  "name": "teams-pwa",
+  "productName": "Microsoft Teams",
+  "version": "1.1.1",
+  "description": "Independent Linux desktop wrapper for Microsoft Teams with background calls and a tray",
+  "main": "src/main.js",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node scripts/run-electron.js .",
+    "test": "node --test tests/*.test.js",
+    "test:smoke": "node scripts/run-electron.js tests/smoke.js",
+    "build:deb": "node scripts/build-deb.js",
+    "autostart:enable": "node scripts/autostart.js enable",
+    "autostart:disable": "node scripts/autostart.js disable"
+  },
+  "devDependencies": { "electron": "44.7.0" }
+}

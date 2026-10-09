@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.cache/
+*.deb
+*.zip
+*.log
+coverage/
+.env
+.env.*
+!.env.example
+teams-desktop/
+teams-pwa/
+*.tmp

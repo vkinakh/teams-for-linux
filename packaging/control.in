@@ -1,0 +1,10 @@
+Package: microsoft-teams-pwa-local
+Version: @VERSION@
+Section: net
+Priority: optional
+Architecture: amd64
+Maintainer: Teams Desktop Contributors <teams-desktop@example.invalid>
+Depends: python3, libnss3, libgtk-3-0t64, libgbm1, libasound2t64, libx11-6, libxcomposite1, libxdamage1, libxrandr2, libxfixes3, libdrm2, libatk1.0-0t64, libatk-bridge2.0-0t64, libcups2t64
+Description: Microsoft Teams desktop wrapper with a background tray
+ Dedicated sandboxed Electron @ELECTRON@ window for Microsoft Teams.
+ Closing the window hides it; Quit Teams in the tray exits the app.

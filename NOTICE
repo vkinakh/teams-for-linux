@@ -1,0 +1,18 @@
+This is an independent wrapper for the Microsoft Teams web application.
+It is not affiliated with Microsoft and is not the existing community
+teams-for-linux project or its Snap package.
+
+The MIT license applies to this project's wrapper code, scripts and documentation.
+It does not relicense Microsoft's services, trademarks or assets.
+
+assets/icon.png is the Microsoft Teams logo retained from the original local
+installation. Microsoft Teams and its logo are Microsoft's trademarks. The
+asset is not covered by this project's MIT license. No redistribution license
+for the logo has been established by this project; verify the applicable
+Microsoft terms or replace the asset before distributing your own release.
+
+Electron is distributed under the MIT license. Chromium and other components
+have their own licenses. Builds retain Electron's LICENSE and
+LICENSES.chromium.html in /opt/microsoft-teams-pwa; they must accompany the
+runtime in distributed packages. See https://www.electronjs.org/ and
+https://github.com/electron/electron.

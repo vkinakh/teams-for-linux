@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+"""Launch the packaged Teams desktop runtime; allow only Teams links."""
+import os
+from pathlib import Path
+import sys
+from urllib.parse import urlsplit, urlunsplit
+
+args = []
+for value in sys.argv[1:]:
+    if value == '--background' and value not in args:
+        args.append(value)
+        continue
+    try:
+        parts = urlsplit(value)
+        if parts.scheme == 'msteams':
+            parts = parts._replace(scheme='https', netloc=parts.netloc or 'teams.microsoft.com')
+        if (parts.scheme != 'https' or parts.hostname not in {'teams.microsoft.com', 'teams.cloud.microsoft', 'teams.live.com'}
+                or parts.username or parts.password or parts.port not in (None, 443)
+                or any(arg.startswith('https:') for arg in args)):
+            raise ValueError()
+    except ValueError:
+        raise SystemExit('Usage: microsoft-teams-pwa [--background] [Teams meeting URL]')
+    args.append(urlunsplit(parts))
+
+state = Path.home() / '.config' / 'teams-desktop'
+state.mkdir(parents=True, exist_ok=True, mode=0o700)
+log = os.open(state / 'desktop.log', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o600)
+os.dup2(log, 1)
+os.dup2(log, 2)
+os.close(log)
+root = '/opt/microsoft-teams-pwa'
+os.execv(root + '/teams-pwa', [root + '/teams-pwa', root + '/resources/app', *args])
